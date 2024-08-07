@@ -40,7 +40,7 @@ function MyDialog({ isOpen, setIsOpen }) {
                                                 Welcome to Resonant Landscapes
                                             </Dialog.Title>
 
-                                            <p>Walk around DSU's campus to hear sounds recorded in each of South Dakota's 13 State Parks.</p>
+                                            <p>Walk around UNIMI's campus to hear sounds recorded in each of South Dakota's 13 State Parks.</p>
                                             <br />
                                             <p> As you approach a park, a menu will pop up that will allow you to play a recording. As you walk closer to the center icon, the recording volume will increase.</p>
                                             <br />
