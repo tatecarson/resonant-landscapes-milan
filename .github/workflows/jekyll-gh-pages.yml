@@ -1,5 +1,5 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+# Sample workflow for building and deploying a Vite ReactJS site to GitHub Pages
+name: Deploy Vite ReactJS with GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -28,15 +28,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          source: ./
-          destination: ./_site
+          node-version: '16'  # Specify the Node.js version
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: dist  # Path to the build output directory
 
   # Deployment job
   deploy:
@@ -48,4 +51,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v2
+        with:
+          path: dist  # Path to the build output directory
